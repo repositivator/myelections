@@ -1,5 +1,5 @@
-from django.shortcuts import render
-from django.http import HttpResponse, HttpResponseRedirect
+from django.shortcuts import render, get_object_or_404
+from django.http import HttpResponse, HttpResponseRedirect, HttpResponseNotFound, Http404
 from django.db.models import Sum
 from .models import Candidate, Poll, Choice
 import datetime
@@ -67,3 +67,8 @@ def results(request, area):
 
     context ={'candidates':candidates, 'area':area, 'poll_results':poll_results}
     return render(request, 'elections/results.html', context)
+
+
+def candidates(request, name):
+    candidate = get_object_or_404(Candidate, name=name)
+    return HttpResponse(candidate.name)
