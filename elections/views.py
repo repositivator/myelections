@@ -1,5 +1,5 @@
 from django.shortcuts import render # + get_object_or_404
-from django.http import HttpResponseRedirect, Http404 # + HttpResponse
+from django.http import HttpResponseRedirect # + Http404, HttpResponse
 from django.db.models import Sum
 from .models import Candidate, Poll, Choice
 import datetime

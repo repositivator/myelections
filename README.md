@@ -5,7 +5,7 @@
 
 
 # {*}helloworld 장고 튜토리얼 - 지역구별 투표 시스템
-## [장고를 활용한 웹사이트 만들기 (Tutorial)](http://goo.gl/mh836w)[({*}helloworld)](http://tryhelloworld.co.kr/)에 따라 만든 웹사이트입니다.
+## [장고를 활용한 웹사이트 만들기](http://goo.gl/mh836w)[({*}helloworld)](http://tryhelloworld.co.kr/)에 따라 만든 웹사이트입니다.
 
 #### 자동 테스트 및 테스트 커버리지 확인을 위해 아래 도구를 활용하였습니다. (테스트 코드를 작성할 계획입니다.)
 - [Travis CI](https://travis-ci.org) to verify the build.
