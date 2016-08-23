@@ -1,0 +1,18 @@
+language: python
+python:
+  - '3.5'
+branches:
+  only:
+    - 'master'
+    - 'advance'
+    - 'rest-api'
+install:
+  - pip install -r requirements.txt
+  - pip install coveralls
+script:
+  - python manage.py test
+  - coverage run --source=myelections,elections manage.py test
+notifications:
+  email: false
+after_success:
+  coveralls
