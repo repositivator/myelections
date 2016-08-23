@@ -1,5 +1,5 @@
-from django.shortcuts import render, get_object_or_404
-from django.http import HttpResponse, HttpResponseRedirect, Http404
+from django.shortcuts import render # + get_object_or_404
+from django.http import HttpResponseRedirect, Http404 # + HttpResponse
 from django.db.models import Sum
 from .models import Candidate, Poll, Choice
 import datetime
@@ -17,7 +17,7 @@ def areas(request, area):
     try:
         poll = Poll.objects.get(area=area, start_date__lte=today,end_date__gte=today)
         candidates = Candidate.objects.filter(area=area)
-    except Exception as e:
+    except Exception:
         poll = None
         candidates = None
 
@@ -33,7 +33,7 @@ def polls(request, poll_id):
         choice = Choice.objects.get(poll_id = poll_id, candidate_id = selection)
         choice.votes += 1
         choice.save()
-    except Exception as e:
+    except Exception:
         choice = Choice(poll_id=poll_id, candidate_id=selection, votes=1)
         choice.save()
 
@@ -59,7 +59,7 @@ def results(request, area):
             try:
                 choice = Choice.objects.get(poll_id = poll.id, candidate_id = candidate.id)
                 rates.append(round(choice.votes*100/result['total_votes'], 1))
-            except Exception as e:
+            except Exception:
                 rates.append(0)
         result['rates'] = rates
 
